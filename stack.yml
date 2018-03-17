@@ -1,0 +1,12 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  google-home-notifier:
+    lang: node-with-ghn-deps # custom node template for google-home-notifier
+    handler: ./google-home-notifier
+    image: kenfdev/faas-google-home-notifier
+    environment:
+      AVAHI_COMPAT_NOWARN: "1"
+      GOOGLEHOME_IP: "192.168.100.4"
